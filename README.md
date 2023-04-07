@@ -37,4 +37,12 @@ In this tutorial, we observe various network traffic to and from Azure Virtual M
 
 <img src="https://user-images.githubusercontent.com/125783560/230518324-f57cf7eb-891b-4d6a-92dc-b0e89838d4f3.png" height="80%" width="80%"/>
 
-<p>I then RDP'd to the Windows VM using Remote Desktop Connection (included in most windows 10 versions), connecting to the IP address of the VM and using the user login I setup back in Azure.</p>
+<p>I then RDP'd to the Windows VM using Remote Desktop Connection (included in most windows 10 versions), connecting to the public IP address of the VM and using the user login I setup back in Azure.</p>
+
+<img src="https://user-images.githubusercontent.com/125783560/230519442-fcafd3e5-da12-46cf-99bd-39a5c11062fe.png" height="100%" width="100%"/>
+
+After the login, I went ahead and installed [Wireshark](https://www.wireshark.org) which is the network protocol analyzer that I will be using to view the network traffic protocols SSH, RDP, DNS, HTTP/S, and ICMP.
+
+<img src="https://user-images.githubusercontent.com/125783560/230521845-02350d70-f244-4c79-afa5-b8a27f24175a.png" height="100%" width="100%"/>
+
+<p>Once the app launched, I went ahead and entered "tcp.port == 3389" in the display filter bar and started capturing packets which will allow me to view the RDP network traffic that as you can see is currently active. This is because I am currently using the Windows app "Remote Desktop Connection" which sends RDP packets via TCP (Transmission Control Protocol) between my computer and the VM to allow me to control the VM through my personal computer.
