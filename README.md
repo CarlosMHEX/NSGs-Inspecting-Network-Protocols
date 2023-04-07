@@ -35,3 +35,6 @@ In this tutorial, we observe various network traffic to and from Azure Virtual M
 
 <p>The virtual Machine creation page as shown is where I choose which subscription the VM would be a part of.. What storage group it will be in.. The name of my VM.. Location of where the VM will be at in the cloud.. The type of operating system.. And essentially how strong the computer is, as well as user and password for login. I create a Windows 10 VM and a linux VM or more specifically an Ubuntu VM of which will be used to show SSH network traffic.</p>
 
+<img src="https://user-images.githubusercontent.com/125783560/230518324-f57cf7eb-891b-4d6a-92dc-b0e89838d4f3.png" height="80%" width="80%"/>
+
+<p>I then RDP'd to the Windows VM using Remote Desktop Connection (included in most windows 10 versions), connecting to the IP address of the VM and using the user login I setup back in Azure.</p>
