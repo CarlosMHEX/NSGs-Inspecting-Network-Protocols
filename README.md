@@ -66,3 +66,10 @@ After the login, I went ahead and installed [Wireshark](https://www.wireshark.or
 <img src="https://user-images.githubusercontent.com/125783560/230643410-c6b172fc-c041-420f-9d70-f69c3fa54d50.gif">
 
 You can think of DNS as a way to convert website names such as `www.google.com` into a bunch of 1's and 0's that the computer can read... As you can see there is very much no traffic until I either start browsing the web which will cause DNS to start asking around for IP address to certain websites I browse to or as I show here the command `nslookup www.google.com` I use in command prompt to find out the IP address of the google website.
+
+<p align="center">
+  <strong>Dynamic Host Configuration Protocol (DHCP)</strong>
+</p>
+<img src="https://user-images.githubusercontent.com/125783560/230646935-65f0d0f2-6f34-4b0f-bef1-583b4988e56d.gif">
+
+DHCP is the protocol that gives your network devices IP addresses as identification, think of it as your address to your home. Using command prompt, I will input the command `ipconfig /renew` which will ask the VM's router to basically refresh it's IP, causing DHCP traffic.
