@@ -43,6 +43,11 @@ In this tutorial, we observe various network traffic to and from Azure Virtual M
 
 After the login, I went ahead and installed [Wireshark](https://www.wireshark.org) which is the network protocol analyzer that I will be using to view the network traffic protocols SSH, RDP, DNS, HTTP/S, and ICMP.
 
-<img src="https://user-images.githubusercontent.com/125783560/230521845-02350d70-f244-4c79-afa5-b8a27f24175a.png" height="100%" width="100%"/>
+<img src="https://user-images.githubusercontent.com/125783560/230534132-b2c5c9ab-a5a7-45b2-98be-44453e6a0ec3.gif" height="20%" width="20%"/>
+<img src="https://user-images.githubusercontent.com/125783560/230523340-f22cc204-ea0c-4f10-854f-250084f9f2bf.gif" height="100%" width="100%"/>
 
-<p>Once the app launched, I went ahead and entered "tcp.port == 3389" in the display filter bar and started capturing packets which will allow me to view the RDP network traffic that as you can see is currently active. This is because I am currently using the Windows app "Remote Desktop Connection" which sends RDP packets via TCP (Transmission Control Protocol) between my computer and the VM to allow me to control the VM through my personal computer.
+<p>Once the app launched, I went ahead and entered "tcp.port == 3389" in the display filter bar and started capturing packets which will allow me to view the RDP network traffic that as you can see is currently active. This is because I am currently using the Windows app "Remote Desktop Connection" which sends RDP packets via TCP (Transmission Control Protocol) between my computer and the VM to allow me to control the VM through my personal computer.</p>
+
+<img src="https://user-images.githubusercontent.com/125783560/230536452-d2e25d4e-937d-4a80-9ed6-e2999b64ae6c.gif" height="100%" width="100%"/>
+
+<p>If I were to show you HTTP traffic on Wireshark it would be very lively since HTTP or HyperText Transfer Protocol is what is used to make the internet work.. HTTPS on the other hand is a more secured connection to websites, so if no browser activity is happening on your desktop PC then there is no HTTPS traffic until you'd browse the internet shown above.</p>
