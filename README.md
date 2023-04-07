@@ -90,7 +90,7 @@ SSH is mostly used to configure devices over the network that don't have a displ
 
 <img src="https://user-images.githubusercontent.com/125783560/230657611-7a5bd3f9-ade7-457e-82c3-be6bd03b5e9c.png">
 
-<p>Going into Azure and into Ubuntu's NSG inbound rules I added a rule that allows for ICMP to flow.. The deny rule and allow rule are both present, but since I have the rule to allow at a higher priority than the one to deny, it allows the ICMP traffic to flow, hence there is a successful ping to the Ubuntu VM shown below.
+<p>Going into Azure and into Ubuntu's NSG inbound rules I added a rule that allows for ICMP to flow.. The deny rule and allow rule are both present, but since I have the rule to allow at a higher priority than the one to deny, it allows the ICMP traffic to flow, hence there is a successful ping to the Ubuntu VM shown below.</p>
 
 <img src="https://user-images.githubusercontent.com/125783560/230657034-734570db-2641-4aac-98b5-3f3c393f135c.gif">
   
