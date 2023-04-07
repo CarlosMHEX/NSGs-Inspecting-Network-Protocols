@@ -23,6 +23,7 @@ In this tutorial, we observe various network traffic to and from Azure Virtual M
 - Create VMs (Windows) (Ubuntu/Linux) through Microsoft Azure
 - Install Wireshark on windows VM to get a visual representation on the network trafficking going on between VMs
 - Inspect traffic of protocols (SSH, RDP, DHCP, DNS, HTTP/s, ICMP)
+- A bit of Network Security Group explaining and fiddling
 
 <h2>Demonstration</h2>
 
