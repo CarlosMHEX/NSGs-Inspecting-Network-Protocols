@@ -65,11 +65,32 @@ After the login, I went ahead and installed [Wireshark](https://www.wireshark.or
 </p>
 <img src="https://user-images.githubusercontent.com/125783560/230643410-c6b172fc-c041-420f-9d70-f69c3fa54d50.gif">
 
-You can think of DNS as a way to convert website names such as `www.google.com` into a bunch of 1's and 0's that the computer can read... As you can see there is very much no traffic until I either start browsing the web which will cause DNS to start asking around for IP address to certain websites I browse to or as I show here the command `nslookup www.google.com` I use in command prompt to find out the IP address of the google website.
+You can think of DNS as a way to convert website names such as `www.google.com` into a bunch of 1's and 0's that the computer can read... As you can see there is very much no traffic until I either start browsing the web which will cause DNS to start asking around for IP address to certain websites I browse to or as I show here the command `nslookup www.google.com` I use in Command Prompt to find out the IP address of the google website.
 
 <p align="center">
   <strong>Dynamic Host Configuration Protocol (DHCP)</strong>
 </p>
 <img src="https://user-images.githubusercontent.com/125783560/230646935-65f0d0f2-6f34-4b0f-bef1-583b4988e56d.gif">
 
-DHCP is the protocol that gives your network devices IP addresses as identification, think of it as your address to your home. Using command prompt, I will input the command `ipconfig /renew` which will ask the VM's router to basically refresh it's IP, causing DHCP traffic.
+DHCP is the protocol that gives your network devices IP addresses as identification, think of it as your address to your home. Using Command Prompt, I will input the command `ipconfig /renew` which will ask the VM's router to basically refresh it's IP, causing DHCP traffic.
+
+<p align="center">
+  <strong>Secure Shell (SSH)</strong>
+</p>
+<img src="https://user-images.githubusercontent.com/125783560/230651644-7acde18e-aadb-4732-ab90-0cdc6a21a924.gif">
+
+SSH is mostly used to configure devices over the network that don't have a display. I will connect to my Ubuntu VM using the command `ssh Hexyhex@10.0.0.5` (Hexyhex being the name of the user and the 10.0.0.5 being the private IP address of the VM) on Command Prompt which will start sending SSH packets over the two VMs to allow control similar to how I am using RDP to control VMs to give these demonstrations.
+
+<p align="center">
+  <strong>Internet Control Message Protocol (ICMP)</strong>
+</p>
+<img src="https://user-images.githubusercontent.com/125783560/230655639-0ef4d5e2-1925-47dc-afb3-4906c38b0148.gif">
+
+<p>Now to inspect ICMP traffic with these 2 VMs, we will need the Ubuntu NSG to allow ICMP traffic to flow.. ICMP traffic is allowed by default, but I closed off any ICMP traffic by putting a security rule in Ubuntu's NSG to deny ICMP for this demonstration.. Seen above is ICMP traffic being caused by an infinite ping I inputted using Command Prompt, unable to ping my Ubuntu VM successfully.</p>
+
+<img src="https://user-images.githubusercontent.com/125783560/230657611-7a5bd3f9-ade7-457e-82c3-be6bd03b5e9c.png">
+
+<p>Going into Azure and into Ubuntu's NSG inbound rules I added a rule that allows for ICMP to flow.. The deny rule and allow rule are both present, but since I have the rule to allow at a higher priority than the one to deny, allowing for the traffic to flow, hence there is a successful ping to the Ubuntu VM shown below.
+
+<img src="https://user-images.githubusercontent.com/125783560/230657034-734570db-2641-4aac-98b5-3f3c393f135c.gif">
+  
