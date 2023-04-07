@@ -10,7 +10,7 @@ In this tutorial, we observe various network traffic to and from Azure Virtual M
 - Microsoft Azure (Virtual Machines/Compute)
 - Remote Desktop
 - Various Command-Line Tools
-- Various Network Protocols (SSH, RDP, DNS, HTTP/S, ICMP)
+- Various Network Protocols (SSH, RDP, DHCP, DNS, HTTP/S, ICMP)
 - Wireshark (Protocol Analyzer)
 
 <h2>Operating Systems Used</h2>
@@ -22,7 +22,7 @@ In this tutorial, we observe various network traffic to and from Azure Virtual M
 
 - Create VMs (Windows) (Ubuntu/Linux) through Microsoft Azure
 - Install Wireshark on windows VM to get a visual representation on the network trafficking going on between VMs
-- Inspect traffic of protocols (SSH, RDP, DNS, HTTP/s, ICMP)
+- Inspect traffic of protocols (SSH, RDP, DHCP, DNS, HTTP/s, ICMP)
 
 <h2>Demonstration</h2>
 
@@ -30,28 +30,39 @@ In this tutorial, we observe various network traffic to and from Azure Virtual M
 
 [Microsoft Azure](https://portal.azure.com) is where the VMs are created and where they're stored via cloud.
 <p align="center"> <img src="https://user-images.githubusercontent.com/125783560/230516013-55b3ee5b-a281-4506-9b38-2fd7178a638d.png" height="30%" width="30%"/>
+</p>
 
 <img src="https://user-images.githubusercontent.com/125783560/230515360-a42ed1fe-0850-405c-85f3-ba67a3af39e0.png">
 
-<p>The virtual Machine creation page as shown is where I choose which subscription the VM would be a part of.. What storage group it will be in.. The name of my VM.. Location of where the VM will be at in the cloud.. The type of operating system.. And essentially how strong the computer is, as well as user and password for login. I created a Windows 10 VM and a linux VM or more specifically an Ubuntu VM on the same network of which will be used to show SSH network traffic.</p>
+<p>The virtual Machine creation page as shown is where I choose which subscription the VM would be a part of.. What storage group it will be in.. The name of my VM.. Location of where the VM will be at in the cloud.. The type of operating system.. And essentially how strong the computer is, as well as user and password for login. If you don't have any storage in Microsoft Azure then it will automatically create one for your VMs and their NSGs to be stored in. I created a Windows 10 VM and a linux VM or more specifically an Ubuntu VM on the same network of which will be used to show SSH network traffic.</p>
 
 <img src="https://user-images.githubusercontent.com/125783560/230518324-f57cf7eb-891b-4d6a-92dc-b0e89838d4f3.png" height="80%" width="80%"/>
 
 <p>I then RDP'd to the Windows VM using Remote Desktop Connection (included in most windows 10 versions), connecting to the public IP address of the VM and using the user login I setup back in Azure.</p>
 
-<img src="https://user-images.githubusercontent.com/125783560/230519442-fcafd3e5-da12-46cf-99bd-39a5c11062fe.png" height="100%" width="100%"/>
+<img src="https://user-images.githubusercontent.com/125783560/230519442-fcafd3e5-da12-46cf-99bd-39a5c11062fe.png">
 
 After the login, I went ahead and installed [Wireshark](https://www.wireshark.org) which is the network protocol analyzer that I will be using to view the network traffic protocols SSH, RDP, DNS, HTTP/S, and ICMP.
 
-<img src="https://user-images.githubusercontent.com/125783560/230541191-a0ec1196-f68f-42a6-881b-7f19e2802ce1.gif" height="20%" width="20%"/>
-<img src="https://user-images.githubusercontent.com/125783560/230523340-f22cc204-ea0c-4f10-854f-250084f9f2bf.gif" height="100%" width="100%"/>
+<p align="center">
+  <strong>Remote Desktop Protocol (RDP)</strong>
+</p>
+<p align="center"> <img src="https://user-images.githubusercontent.com/125783560/230541191-a0ec1196-f68f-42a6-881b-7f19e2802ce1.gif" height="20%" width="20%"/>
+</p>
+<img src="https://user-images.githubusercontent.com/125783560/230523340-f22cc204-ea0c-4f10-854f-250084f9f2bf.gif">
 
-<p>Once the app launched, I went ahead and entered "tcp.port == 3389" in the display filter bar and started capturing packets which will allow me to view the RDP network traffic that as you can see is currently active. This is because I am currently using the Windows app "Remote Desktop Connection" which sends RDP packets via TCP (Transmission Control Protocol) between my computer and the VM to allow me to control the VM through my personal computer.</p>
+<p>Once the app launched, I went ahead and entered "tcp.port == 3389" in the display filter bar and started capturing packets which will allow me to view the RDP network traffic that as you can see is active. This is because I am currently using the Windows app "Remote Desktop Connection" which sends RDP packets via TCP (Transmission Control Protocol) between my computer and the VM to allow me to control the VM through my personal computer.</p>
 
 <p align="center">
-  <span style="font-size: 108px !important;"><strong>HTTP/S</strong></span>
+  <strong>Hypertext Transfer Protocol Secure (HTTP/S)</strong>
 </p>
-<img src="https://user-images.githubusercontent.com/125783560/230536452-d2e25d4e-937d-4a80-9ed6-e2999b64ae6c.gif" height="100%" width="100%"/>
+<img src="https://user-images.githubusercontent.com/125783560/230536452-d2e25d4e-937d-4a80-9ed6-e2999b64ae6c.gif">
 
 <p>If I were to show you HTTP traffic on Wireshark it would be very lively since HTTP or HyperText Transfer Protocol is what is used to make the internet work.. HTTPS on the other hand is a more secured connection to websites, so if no browser activity is happening on your desktop PC then there is no HTTPS traffic until you'd browse the internet shown above.</p>
 
+<p align="center">
+  <strong>Domain Name System (DNS)</strong>
+</p>
+<img src="https://user-images.githubusercontent.com/125783560/230643410-c6b172fc-c041-420f-9d70-f69c3fa54d50.gif">
+
+You can think of DNS as a way to convert website names such as `www.google.com` into a bunch of 1's and 0's that the computer can read... As you can see there is very much no traffic until I either start browsing the web which will cause DNS to start asking around for IP address to certain websites I browse to or as I show here the command `nslookup www.google.com` I use in command prompt to find out the IP address of the google website.
