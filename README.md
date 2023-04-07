@@ -28,3 +28,12 @@ In this tutorial, we observe various network traffic to and from Azure Virtual M
 
 <p>In this demonstration I show how I setup VMs using Microsoft Azure and installing Wireshark on a VM to inspect the traffic going on in networking protocols, giving a simple explanation of each protocol and how they work.</p>
 
+[Microsoft Azure](https://portal.azure.com) is where the VMs are created and where they're stored via cloud. <img src="https://user-images.githubusercontent.com/125783560/230516013-55b3ee5b-a281-4506-9b38-2fd7178a638d.png" height "50" width "50">
+
+
+<img src="https://user-images.githubusercontent.com/125783560/230515360-a42ed1fe-0850-405c-85f3-ba67a3af39e0.png">
+
+<p>The virtual Machine creation page as shown is where I choose which subscription the VM would be a part of.. What storage group it will be in.. The name of my VM.. Location of where the VM will be at in the cloud.. The type of operating system.. And essentially how strong the computer is, as well as user and password for login.</p>
+
+
+
